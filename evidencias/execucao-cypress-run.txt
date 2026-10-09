@@ -1,0 +1,103 @@
+
+
+====================================================================================================
+
+  (Run Starting)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Cypress:        16.1.1                                                                         │
+  │ Browser:        Electron 146 (headless) (deprecated)                                           │
+  │ Node Version:   v22.19.0 (C:\Program Files\nodejs\node.exe)                                    │
+  │ Specs:          2 found (busca.cy.js, trabalhe-conosco.cy.js)                                  │
+  │ Searched:       cypress/e2e/**/*.cy.js                                                         │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+Warning: The Electron browser is deprecated as a test browser and will be removed in a future version of Cypress.
+
+Switch to Chrome or another installed browser to avoid a breaking change when you upgrade.
+
+Read more about supported browsers: https://on.cypress.io/launching-browsers
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  busca.cy.js                                                                     (1 of 2)
+
+
+  Busca do site
+    √ CT01 - busca por termo existente lista notícias relacionadas (18338ms)
+
+  Contato
+    √ CT02 - página de contato exibe telefone e link do formulário externo (2511ms)
+
+
+  2 passing (21s)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        2                                                                                │
+  │ Passing:      2                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        true                                                                             │
+  │ Duration:     21 seconds                                                                       │
+  │ Spec Ran:     busca.cy.js                                                                      │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Video)
+
+  -  Video output: C:\Users\celei\atividade-cypress\cypress\videos\busca.cy.js.mp4
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  trabalhe-conosco.cy.js                                                          (2 of 2)
+
+
+  Formulário Trabalhe Conosco
+    √ CT03 - envio vazio é bloqueado e indica campos obrigatórios (1893ms)
+    √ CT04 - e-mail em formato inválido é rejeitado e válido é aceito (887ms)
+    √ CT05 - envio com dados válidos manda os dados e exibe confirmação (1397ms)
+
+
+  3 passing (4s)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        3                                                                                │
+  │ Passing:      3                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        true                                                                             │
+  │ Duration:     4 seconds                                                                        │
+  │ Spec Ran:     trabalhe-conosco.cy.js                                                           │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Video)
+
+  -  Video output: C:\Users\celei\atividade-cypress\cypress\videos\trabalhe-conosco.cy.js.mp4
+
+
+====================================================================================================
+
+  (Run Finished)
+
+
+       Spec                                              Tests  Passing  Failing  Pending  Skipped  
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ ✔  busca.cy.js                              00:21        2        2        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  trabalhe-conosco.cy.js                   00:04        3        3        -        -        - │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+    ✔  All specs passed!                        00:25        5        5        -        -        -  
+
