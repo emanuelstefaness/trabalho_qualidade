@@ -58,4 +58,7 @@ digitados e o arquivo anexado saem corretamente no corpo da requisição.
 
 ## Equipe
 
-Preencher com nome de cada integrante e a divisão de tarefas.
+- Emanuel Souza Stefanes
+- Roger Felipe
+- Allan Lemos
+- João Vitor
