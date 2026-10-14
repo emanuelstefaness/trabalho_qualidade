@@ -25,13 +25,13 @@ Read more about supported browsers: https://on.cypress.io/launching-browsers
 
 
   Busca do site
-    √ CT01 - busca por termo existente lista notícias relacionadas (18338ms)
+    √ CT01 - busca por termo existente lista notícias relacionadas (52212ms)
 
   Contato
-    √ CT02 - página de contato exibe telefone e link do formulário externo (2511ms)
+    √ CT02 - página de contato exibe telefone e link do formulário externo (22916ms)
 
 
-  2 passing (21s)
+  2 passing (1m)
 
 
   (Results)
@@ -42,11 +42,17 @@ Read more about supported browsers: https://on.cypress.io/launching-browsers
   │ Failing:      0                                                                                │
   │ Pending:      0                                                                                │
   │ Skipped:      0                                                                                │
-  │ Screenshots:  0                                                                                │
+  │ Screenshots:  2                                                                                │
   │ Video:        true                                                                             │
-  │ Duration:     21 seconds                                                                       │
+  │ Duration:     1 minute, 27 seconds                                                             │
   │ Spec Ran:     busca.cy.js                                                                      │
   └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  C:\Users\celei\atividade-cypress\evidencias\prints\busca.cy.js\CT01.png              (1280x720)
+  -  C:\Users\celei\atividade-cypress\evidencias\prints\busca.cy.js\CT02.png              (1280x720)
 
 
   (Video)
@@ -60,12 +66,12 @@ Read more about supported browsers: https://on.cypress.io/launching-browsers
 
 
   Formulário Trabalhe Conosco
-    √ CT03 - envio vazio é bloqueado e indica campos obrigatórios (1893ms)
-    √ CT04 - e-mail em formato inválido é rejeitado e válido é aceito (887ms)
-    √ CT05 - envio com dados válidos manda os dados e exibe confirmação (1397ms)
+    √ CT03 - envio vazio é bloqueado e indica campos obrigatórios (12483ms)
+    √ CT04 - e-mail em formato inválido é rejeitado e válido é aceito (1796ms)
+    √ CT05 - envio com dados válidos manda os dados e exibe confirmação (2811ms)
 
 
-  3 passing (4s)
+  3 passing (20s)
 
 
   (Results)
@@ -76,11 +82,21 @@ Read more about supported browsers: https://on.cypress.io/launching-browsers
   │ Failing:      0                                                                                │
   │ Pending:      0                                                                                │
   │ Skipped:      0                                                                                │
-  │ Screenshots:  0                                                                                │
+  │ Screenshots:  3                                                                                │
   │ Video:        true                                                                             │
-  │ Duration:     4 seconds                                                                        │
+  │ Duration:     20 seconds                                                                       │
   │ Spec Ran:     trabalhe-conosco.cy.js                                                           │
   └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  C:\Users\celei\atividade-cypress\evidencias\prints\trabalhe-conosco.cy.js\CT03.p     (1280x720)
+     ng                                                                                             
+  -  C:\Users\celei\atividade-cypress\evidencias\prints\trabalhe-conosco.cy.js\CT04.p     (1280x720)
+     ng                                                                                             
+  -  C:\Users\celei\atividade-cypress\evidencias\prints\trabalhe-conosco.cy.js\CT05.p     (1280x720)
+     ng                                                                                             
 
 
   (Video)
@@ -95,9 +111,9 @@ Read more about supported browsers: https://on.cypress.io/launching-browsers
 
        Spec                                              Tests  Passing  Failing  Pending  Skipped  
   ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
-  │ ✔  busca.cy.js                              00:21        2        2        -        -        - │
+  │ ✔  busca.cy.js                              01:27        2        2        -        -        - │
   ├────────────────────────────────────────────────────────────────────────────────────────────────┤
-  │ ✔  trabalhe-conosco.cy.js                   00:04        3        3        -        -        - │
+  │ ✔  trabalhe-conosco.cy.js                   00:20        3        3        -        -        - │
   └────────────────────────────────────────────────────────────────────────────────────────────────┘
-    ✔  All specs passed!                        00:25        5        5        -        -        -  
+    ✔  All specs passed!                        01:47        5        5        -        -        -  
 
