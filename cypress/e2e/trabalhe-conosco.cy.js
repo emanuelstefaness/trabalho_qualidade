@@ -22,6 +22,7 @@ describe("Formulário Trabalhe Conosco", () => {
       expect($el[0].validity.typeMismatch, "formato inválido").to.be.true;
       expect($el[0].checkValidity()).to.be.false;
     });
+    cy.screenshot("CT04-invalido", { capture: "viewport", overwrite: true });
 
     cy.dc("tc-email").clear().type("candidato@exemplo.com");
     cy.dc("tc-email").then(($el) => {

@@ -25,13 +25,13 @@ Read more about supported browsers: https://on.cypress.io/launching-browsers
 
 
   Busca do site
-    √ CT01 - busca por termo existente lista notícias relacionadas (52212ms)
+    √ CT01 - busca por termo existente lista notícias relacionadas (19682ms)
 
   Contato
-    √ CT02 - página de contato exibe telefone e link do formulário externo (22916ms)
+    √ CT02 - página de contato exibe telefone e link do formulário externo (6527ms)
 
 
-  2 passing (1m)
+  2 passing (29s)
 
 
   (Results)
@@ -44,7 +44,7 @@ Read more about supported browsers: https://on.cypress.io/launching-browsers
   │ Skipped:      0                                                                                │
   │ Screenshots:  2                                                                                │
   │ Video:        true                                                                             │
-  │ Duration:     1 minute, 27 seconds                                                             │
+  │ Duration:     29 seconds                                                                       │
   │ Spec Ran:     busca.cy.js                                                                      │
   └────────────────────────────────────────────────────────────────────────────────────────────────┘
 
@@ -66,12 +66,12 @@ Read more about supported browsers: https://on.cypress.io/launching-browsers
 
 
   Formulário Trabalhe Conosco
-    √ CT03 - envio vazio é bloqueado e indica campos obrigatórios (12483ms)
-    √ CT04 - e-mail em formato inválido é rejeitado e válido é aceito (1796ms)
-    √ CT05 - envio com dados válidos manda os dados e exibe confirmação (2811ms)
+    √ CT03 - envio vazio é bloqueado e indica campos obrigatórios (14427ms)
+    √ CT04 - e-mail em formato inválido é rejeitado e válido é aceito (3393ms)
+    √ CT05 - envio com dados válidos manda os dados e exibe confirmação (2447ms)
 
 
-  3 passing (20s)
+  3 passing (23s)
 
 
   (Results)
@@ -82,9 +82,9 @@ Read more about supported browsers: https://on.cypress.io/launching-browsers
   │ Failing:      0                                                                                │
   │ Pending:      0                                                                                │
   │ Skipped:      0                                                                                │
-  │ Screenshots:  3                                                                                │
+  │ Screenshots:  4                                                                                │
   │ Video:        true                                                                             │
-  │ Duration:     20 seconds                                                                       │
+  │ Duration:     23 seconds                                                                       │
   │ Spec Ran:     trabalhe-conosco.cy.js                                                           │
   └────────────────────────────────────────────────────────────────────────────────────────────────┘
 
@@ -93,6 +93,8 @@ Read more about supported browsers: https://on.cypress.io/launching-browsers
 
   -  C:\Users\celei\atividade-cypress\evidencias\prints\trabalhe-conosco.cy.js\CT03.p     (1280x720)
      ng                                                                                             
+  -  C:\Users\celei\atividade-cypress\evidencias\prints\trabalhe-conosco.cy.js\CT04-i     (1280x720)
+     nvalido.png                                                                                    
   -  C:\Users\celei\atividade-cypress\evidencias\prints\trabalhe-conosco.cy.js\CT04.p     (1280x720)
      ng                                                                                             
   -  C:\Users\celei\atividade-cypress\evidencias\prints\trabalhe-conosco.cy.js\CT05.p     (1280x720)
@@ -111,9 +113,9 @@ Read more about supported browsers: https://on.cypress.io/launching-browsers
 
        Spec                                              Tests  Passing  Failing  Pending  Skipped  
   ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
-  │ ✔  busca.cy.js                              01:27        2        2        -        -        - │
+  │ ✔  busca.cy.js                              00:29        2        2        -        -        - │
   ├────────────────────────────────────────────────────────────────────────────────────────────────┤
-  │ ✔  trabalhe-conosco.cy.js                   00:20        3        3        -        -        - │
+  │ ✔  trabalhe-conosco.cy.js                   00:23        3        3        -        -        - │
   └────────────────────────────────────────────────────────────────────────────────────────────────┘
-    ✔  All specs passed!                        01:47        5        5        -        -        -  
+    ✔  All specs passed!                        00:52        5        5        -        -        -  
 

@@ -25,5 +25,6 @@ describe("Contato", () => {
       .should("have.attr", "href")
       .and("match", /^https:\/\/forms\.gle\//);
     cy.url().should("include", "/contato");
+    cy.dc("contato-telefone").first().scrollIntoView();
   });
 });
