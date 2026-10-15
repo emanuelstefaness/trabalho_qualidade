@@ -13,20 +13,13 @@ module.exports = {
   "busca-titulo": { sel: ".elementor-heading-title", texto: "Resultado da pesquisa" },
   "busca-card": "article.noticia-card",
   "busca-card-titulo": "article.noticia-card .noticia-title",
+  "busca-msg-vazia": { sel: ".elementor-shortcode p", texto: "Digite algo para pesquisar" },
+  "busca-msg-sem-resultado": { sel: ".elementor-shortcode p", texto: "Nenhum resultado para" },
+
+  // Menu principal (desktop)
+  "menu-cursos": "ul.mbd-root > li.mbd-parent:has(a[href$='/cursos/direito/'])",
+  "menu-curso-direito": "li.mbd-sub-item a[href$='/cursos/direito/']",
 
   // Aviso de cookies
   "cookie-aceitar": "#cn-accept-cookie",
-
-  // Trabalhe Conosco (formulário Elementor)
-  "tc-form": "form.elementor-form[name='Trabalhe Conosco']",
-  "tc-nome": "#form-field-name",
-  "tc-email": "#form-field-email",
-  "tc-curriculo": "#form-field-field_ed22cc5",
-  "tc-mensagem": "#form-field-message",
-  "tc-enviar": "form.elementor-form[name='Trabalhe Conosco'] button[type='submit']",
-  "tc-msg-sucesso": ".elementor-message-success",
-
-  // Contato
-  "contato-link-form": "a[href*='forms.gle']",
-  "contato-telefone": { sel: ".elementor-heading-title", texto: "(42) 3621" },
 };

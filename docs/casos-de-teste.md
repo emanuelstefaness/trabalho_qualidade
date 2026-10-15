@@ -1,58 +1,61 @@
 # Casos de teste
 
 Sistema: site do Centro Universitário Campo Real – Guarapuava (`https://guarapuava.camporeal.edu.br`).
+Os 5 casos foram retirados do roteiro do 1º bimestre (Desafio 3, aplicando Particionamento de
+Equivalência e Análise de Valor Limite), mantendo a numeração original.
 Todos os elementos são acessados por `data-cy` (ver `cypress/support/data-cy-map.js`).
 
-| ID | Área | Arquivo |
-|----|------|---------|
-| CT01 | Busca | `cypress/e2e/busca.cy.js` |
-| CT02 | Contato | `cypress/e2e/busca.cy.js` |
-| CT03 | Formulário (validação) | `cypress/e2e/trabalhe-conosco.cy.js` |
-| CT04 | Formulário (validação) | `cypress/e2e/trabalhe-conosco.cy.js` |
-| CT05 | Formulário (envio) | `cypress/e2e/trabalhe-conosco.cy.js` |
+| ID (roteiro) | Área | Técnica | Arquivo |
+|--------------|------|---------|---------|
+| TC02 | Busca | Classe de equivalência válida | `cypress/e2e/busca.cy.js` |
+| TC07 | Busca | Classe de equivalência inválida (campo vazio) | `cypress/e2e/busca.cy.js` |
+| TC08 | Busca | Classe inválida por tamanho extremo (250 caracteres) | `cypress/e2e/busca.cy.js` |
+| TC14 | Busca | Classe inválida (caractere fora do alfanumérico: emoji) | `cypress/e2e/busca.cy.js` |
+| TC04 | Navegação (menu) | Classe de equivalência válida | `cypress/e2e/navegacao.cy.js` |
 
-## CT01 – Busca por termo existente lista notícias relacionadas
+## TC02 – Busca por termo comum mostra resultados relacionados
 
-- **Pré-condição:** site no ar.
-- **Passos:** 1. Abrir `/`. 2. Digitar "vestibular" no campo de busca. 3. Acionar o botão de buscar.
-- **Resultado esperado:** a URL contém `s=vestibular`; o título "Resultado da pesquisa" aparece;
-  há 1 ou mais cards de notícia; o título do primeiro card contém "vestibular".
-- **data-cy usados:** `busca-input`, `busca-submit`, `busca-titulo`, `busca-card`, `busca-card-titulo`.
+- **Passos:** 1. Abrir `/`. 2. Digitar "Direito" no campo de busca. 3. Acionar o botão de buscar.
+- **Resultado esperado:** abre a página de resultados com conteúdo relacionado a "Direito".
+- **Asserções:** URL contém `s=Direito`; título "Resultado da pesquisa" existe; há 1 ou mais cards;
+  os títulos dos cards contêm "direito".
+- **data-cy:** `busca-input`, `busca-submit`, `busca-titulo`, `busca-card`, `busca-card-titulo`.
 
-## CT02 – Página de contato exibe telefone e link do formulário externo
+## TC07 – Busca vazia não trava e pede para digitar algo
 
-- **Pré-condição:** site no ar.
-- **Passos:** 1. Abrir `/contato`.
-- **Resultado esperado:** o telefone "(42) 3621 ..." é exibido; existe link para o formulário
-  externo (`https://forms.gle/...`); a URL continua em `/contato`.
-- **data-cy usados:** `contato-telefone`, `contato-link-form`.
+- **Passos:** 1. Abrir `/`. 2. Acionar o botão de buscar sem digitar nada.
+- **Resultado esperado:** não trava; mostra a mensagem "Digite algo para pesquisar.".
+- **Asserções:** URL contém `s=`; mensagem "Digite algo para pesquisar." aparece; nenhum card de resultado.
+- **data-cy:** `busca-submit`, `busca-msg-vazia`, `busca-card`.
 
-## CT03 – Envio vazio é bloqueado e indica campos obrigatórios
+## TC08 – Termo muito grande não quebra a página
 
-- **Pré-condição:** nenhuma.
-- **Passos:** 1. Abrir `/trabalhe-conosco`. 2. Clicar em enviar sem preencher nada.
-- **Resultado esperado:** e-mail e currículo ficam inválidos por "campo obrigatório";
-  nenhuma mensagem de sucesso aparece; a página permanece em `/trabalhe-conosco`.
-- **data-cy usados:** `tc-enviar`, `tc-email`, `tc-curriculo`, `tc-msg-sucesso`.
+- **Passos:** 1. Abrir `/`. 2. Digitar 250 letras "A". 3. Acionar o botão de buscar.
+- **Resultado esperado:** não trava nem quebra, mesmo sem achar nada.
+- **Asserções:** mensagem "Nenhum resultado para" aparece; a mensagem contém o termo inteiro (250 caracteres);
+  nenhum card de resultado.
+- **data-cy:** `busca-input`, `busca-submit`, `busca-msg-sem-resultado`, `busca-card`.
 
-## CT04 – E-mail inválido é rejeitado e válido é aceito
+## TC14 – Emoji na busca é tratado sem travar
 
-- **Passos:** 1. Abrir `/trabalhe-conosco`. 2. Digitar `email-sem-arroba` no e-mail.
-  3. Limpar e digitar `candidato@exemplo.com`.
-- **Resultado esperado:** com texto sem "@" o campo é inválido (formato incorreto);
-  com e-mail bem formado o campo passa a ser válido.
-- **data-cy usados:** `tc-email`.
+- **Passos:** 1. Abrir `/`. 2. Digitar o emoji 🎓. 3. Acionar o botão de buscar.
+- **Resultado esperado:** não trava; o emoji aparece na mensagem de "Nenhum resultado".
+- **Asserções:** mensagem "Nenhum resultado para" aparece; o emoji está na mensagem (o WordPress o
+  exibe como imagem com `alt="🎓"`); a URL contém o emoji codificado.
+- **data-cy:** `busca-input`, `busca-submit`, `busca-msg-sem-resultado`.
 
-## CT05 – Envio com dados válidos manda os dados e exibe confirmação
+## TC04 – Menu Cursos > Direito abre a página do curso
 
-- **Pré-condição:** a requisição `admin-ajax.php` é simulada (`cy.intercept`) para não enviar dados reais.
-- **Passos:** 1. Abrir `/trabalhe-conosco`. 2. Preencher nome, e-mail e mensagem.
-  3. Anexar `curriculo.pdf`. 4. Clicar em enviar.
-- **Resultado esperado:** o corpo da requisição contém nome, e-mail e nome do arquivo;
-  a mensagem de sucesso aparece; o campo de e-mail é limpo.
-- **data-cy usados:** `tc-nome`, `tc-email`, `tc-curriculo`, `tc-mensagem`, `tc-enviar`, `tc-msg-sucesso`.
+- **Passos:** 1. Abrir `/`. 2. Passar o mouse em "Cursos". 3. Clicar em "Direito".
+- **Resultado esperado:** abre a página do curso de Direito.
+- **Asserções:** URL contém `/cursos/direito`; título da página contém "Direito"; a página exibe "Direito".
+- **data-cy:** `menu-cursos`, `menu-curso-direito`.
 
-## Observação
+## Casos do roteiro que não foram automatizados
 
-Os IDs acima foram numerados para esta atividade. Se o roteiro manual do 1º bimestre usava
-outra numeração, ajustar a coluna de ID mantendo a correspondência.
+- **TC01, TC05, TC05B, TC05C, TC06, TC09 a TC13 (formulário de inscrição do vestibular):** a página
+  `vestibular-inverno-2026-online-agora-guarapuava` saiu do ar (404) e o vestibular atual
+  não tem os mesmos campos (CPF, data de nascimento etc.).
+- **TC03:** depende do site institucional `camporeal.edu.br` (outro domínio).
+- **TC15 (formulário do botão WhatsApp):** o teste manual já havia falhado (mensagem em inglês) e
+  o formulário só abre pelo botão flutuante da página do vestibular.

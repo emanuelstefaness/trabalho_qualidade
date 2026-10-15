@@ -8,7 +8,7 @@
   │ Cypress:        16.1.1                                                                         │
   │ Browser:        Electron 146 (headless) (deprecated)                                           │
   │ Node Version:   v22.19.0 (C:\Program Files\nodejs\node.exe)                                    │
-  │ Specs:          2 found (busca.cy.js, trabalhe-conosco.cy.js)                                  │
+  │ Specs:          2 found (busca.cy.js, navegacao.cy.js)                                         │
   │ Searched:       cypress/e2e/**/*.cy.js                                                         │
   └────────────────────────────────────────────────────────────────────────────────────────────────┘
 
@@ -25,34 +25,36 @@ Read more about supported browsers: https://on.cypress.io/launching-browsers
 
 
   Busca do site
-    √ CT01 - busca por termo existente lista notícias relacionadas (19682ms)
+    √ TC02 - busca por termo comum (Direito) mostra resultados relacionados (14629ms)
+    √ TC07 - busca vazia não trava e pede para digitar algo (9279ms)
+    √ TC08 - termo muito grande (250 caracteres) não quebra a página (5026ms)
+    √ TC14 - emoji na busca é tratado sem travar (6309ms)
 
-  Contato
-    √ CT02 - página de contato exibe telefone e link do formulário externo (6527ms)
 
-
-  2 passing (29s)
+  4 passing (39s)
 
 
   (Results)
 
   ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
-  │ Tests:        2                                                                                │
-  │ Passing:      2                                                                                │
+  │ Tests:        4                                                                                │
+  │ Passing:      4                                                                                │
   │ Failing:      0                                                                                │
   │ Pending:      0                                                                                │
   │ Skipped:      0                                                                                │
-  │ Screenshots:  2                                                                                │
+  │ Screenshots:  4                                                                                │
   │ Video:        true                                                                             │
-  │ Duration:     29 seconds                                                                       │
+  │ Duration:     39 seconds                                                                       │
   │ Spec Ran:     busca.cy.js                                                                      │
   └────────────────────────────────────────────────────────────────────────────────────────────────┘
 
 
   (Screenshots)
 
-  -  C:\Users\celei\atividade-cypress\evidencias\prints\busca.cy.js\CT01.png              (1280x720)
-  -  C:\Users\celei\atividade-cypress\evidencias\prints\busca.cy.js\CT02.png              (1280x720)
+  -  C:\Users\celei\atividade-cypress\evidencias\prints\busca.cy.js\TC02.png              (1280x720)
+  -  C:\Users\celei\atividade-cypress\evidencias\prints\busca.cy.js\TC07.png              (1280x720)
+  -  C:\Users\celei\atividade-cypress\evidencias\prints\busca.cy.js\TC08.png              (1280x720)
+  -  C:\Users\celei\atividade-cypress\evidencias\prints\busca.cy.js\TC14.png              (1280x720)
 
 
   (Video)
@@ -62,48 +64,39 @@ Read more about supported browsers: https://on.cypress.io/launching-browsers
 
 ────────────────────────────────────────────────────────────────────────────────────────────────────
                                                                                                     
-  Running:  trabalhe-conosco.cy.js                                                          (2 of 2)
+  Running:  navegacao.cy.js                                                                 (2 of 2)
 
 
-  Formulário Trabalhe Conosco
-    √ CT03 - envio vazio é bloqueado e indica campos obrigatórios (14427ms)
-    √ CT04 - e-mail em formato inválido é rejeitado e válido é aceito (3393ms)
-    √ CT05 - envio com dados válidos manda os dados e exibe confirmação (2447ms)
+  Navegação pelo menu
+    √ TC04 - menu Cursos > Direito abre a página do curso (27750ms)
 
 
-  3 passing (23s)
+  1 passing (30s)
 
 
   (Results)
 
   ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
-  │ Tests:        3                                                                                │
-  │ Passing:      3                                                                                │
+  │ Tests:        1                                                                                │
+  │ Passing:      1                                                                                │
   │ Failing:      0                                                                                │
   │ Pending:      0                                                                                │
   │ Skipped:      0                                                                                │
-  │ Screenshots:  4                                                                                │
+  │ Screenshots:  1                                                                                │
   │ Video:        true                                                                             │
-  │ Duration:     23 seconds                                                                       │
-  │ Spec Ran:     trabalhe-conosco.cy.js                                                           │
+  │ Duration:     29 seconds                                                                       │
+  │ Spec Ran:     navegacao.cy.js                                                                  │
   └────────────────────────────────────────────────────────────────────────────────────────────────┘
 
 
   (Screenshots)
 
-  -  C:\Users\celei\atividade-cypress\evidencias\prints\trabalhe-conosco.cy.js\CT03.p     (1280x720)
-     ng                                                                                             
-  -  C:\Users\celei\atividade-cypress\evidencias\prints\trabalhe-conosco.cy.js\CT04-i     (1280x720)
-     nvalido.png                                                                                    
-  -  C:\Users\celei\atividade-cypress\evidencias\prints\trabalhe-conosco.cy.js\CT04.p     (1280x720)
-     ng                                                                                             
-  -  C:\Users\celei\atividade-cypress\evidencias\prints\trabalhe-conosco.cy.js\CT05.p     (1280x720)
-     ng                                                                                             
+  -  C:\Users\celei\atividade-cypress\evidencias\prints\navegacao.cy.js\TC04.png          (1280x720)
 
 
   (Video)
 
-  -  Video output: C:\Users\celei\atividade-cypress\cypress\videos\trabalhe-conosco.cy.js.mp4
+  -  Video output: C:\Users\celei\atividade-cypress\cypress\videos\navegacao.cy.js.mp4
 
 
 ====================================================================================================
@@ -113,9 +106,9 @@ Read more about supported browsers: https://on.cypress.io/launching-browsers
 
        Spec                                              Tests  Passing  Failing  Pending  Skipped  
   ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
-  │ ✔  busca.cy.js                              00:29        2        2        -        -        - │
+  │ ✔  busca.cy.js                              00:39        4        4        -        -        - │
   ├────────────────────────────────────────────────────────────────────────────────────────────────┤
-  │ ✔  trabalhe-conosco.cy.js                   00:23        3        3        -        -        - │
+  │ ✔  navegacao.cy.js                          00:29        1        1        -        -        - │
   └────────────────────────────────────────────────────────────────────────────────────────────────┘
-    ✔  All specs passed!                        00:52        5        5        -        -        -  
+    ✔  All specs passed!                        01:08        5        5        -        -        -  
 

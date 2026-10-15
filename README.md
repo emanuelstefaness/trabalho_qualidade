@@ -1,8 +1,10 @@
 # Atividade 1 – Testes E2E com Cypress
 
 Testes automatizados do site do Centro Universitário Campo Real (unidade Guarapuava),
-`https://guarapuava.camporeal.edu.br`, cobrindo busca, contato e o formulário **Trabalhe Conosco**.
-Os casos vêm do roteiro manual do 1º bimestre (testes de formulário do site).
+`https://guarapuava.camporeal.edu.br`, cobrindo a **busca** (TC02, TC07, TC08, TC14) e a
+**navegação pelo menu** (TC04).
+Os 5 casos vêm do roteiro manual do 1º bimestre (Desafio 3) e mantêm a numeração original.
+Detalhes e os casos que não foram automatizados: `docs/casos-de-teste.md`.
 
 ## Pré-requisitos
 
@@ -35,12 +37,11 @@ Para rodar um arquivo só: `npx cypress run --spec cypress/e2e/busca.cy.js`
 
 ```
 cypress.config.js            baseUrl e opções
-cypress/e2e/                 os 5 testes (busca.cy.js, trabalhe-conosco.cy.js)
+cypress/e2e/                 os 5 testes (busca.cy.js, navegacao.cy.js)
 cypress/support/commands.js  comandos cy.dc(), cy.abrir(), cy.marcarDataCy()
 cypress/support/data-cy-map.js  mapa data-cy -> elemento do site
-cypress/fixtures/            arquivo de currículo fictício
 docs/casos-de-teste.md       descrição dos casos
-evidencias/                  vídeos e saída do npx cypress run
+evidencias/                  prints, vídeos e saída do npx cypress run
 ```
 
 ## Sobre o `data-cy`
@@ -50,11 +51,10 @@ CSS é `cypress/support/data-cy-map.js`, que marca os elementos com `data-cy` ao
 **Os testes usam exclusivamente `[data-cy="..."]`** (via `cy.dc("id")`).
 Se o site mudar o HTML, só esse arquivo precisa de ajuste.
 
-## Sobre o envio do formulário
+## Observação
 
-No CT05 a requisição de envio (`admin-ajax.php`) é interceptada e respondida pelo Cypress,
-para não mandar candidaturas falsas à instituição. O teste verifica que os dados
-digitados e o arquivo anexado saem corretamente no corpo da requisição.
+Os testes só fazem buscas e navegação (requisições de leitura); nenhum formulário é enviado
+ao site real.
 
 ## Equipe
 
