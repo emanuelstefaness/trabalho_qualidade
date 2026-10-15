@@ -1,9 +1,9 @@
 # Atividade 1 – Testes E2E com Cypress
 
 Testes automatizados do site do Centro Universitário Campo Real (unidade Guarapuava),
-`https://guarapuava.camporeal.edu.br`, cobrindo a **busca** (TC02, TC07, TC08, TC14) e a
-**navegação pelo menu** (TC04).
-Os 5 casos vêm do roteiro manual do 1º bimestre (Desafio 3) e mantêm a numeração original.
+`https://guarapuava.camporeal.edu.br`, cobrindo a **busca** (TC02, TC07, TC08, TC14), a
+**navegação pelo menu** (TC04) e o **formulário do botão WhatsApp** (TC15).
+Os 6 casos vêm do roteiro manual do 1º bimestre (Desafio 3) e mantêm a numeração original.
 Detalhes e os casos que não foram automatizados: `docs/casos-de-teste.md`.
 
 ## Pré-requisitos
@@ -37,7 +37,7 @@ Para rodar um arquivo só: `npx cypress run --spec cypress/e2e/busca.cy.js`
 
 ```
 cypress.config.js            baseUrl e opções
-cypress/e2e/                 os 5 testes (busca.cy.js, navegacao.cy.js)
+cypress/e2e/                 os testes (busca, navegacao, whatsapp .cy.js)
 cypress/support/commands.js  comandos cy.dc(), cy.abrir(), cy.marcarDataCy()
 cypress/support/data-cy-map.js  mapa data-cy -> elemento do site
 docs/casos-de-teste.md       descrição dos casos
@@ -53,8 +53,8 @@ Se o site mudar o HTML, só esse arquivo precisa de ajuste.
 
 ## Observação
 
-Os testes só fazem buscas e navegação (requisições de leitura); nenhum formulário é enviado
-ao site real.
+Os testes fazem buscas, navegação e uma tentativa de envio vazio (bloqueada pelo próprio
+formulário). A requisição de envio é interceptada, então nenhum dado chega ao site real.
 
 ## Equipe
 

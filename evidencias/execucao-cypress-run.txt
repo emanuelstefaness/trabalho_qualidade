@@ -8,7 +8,7 @@
   │ Cypress:        16.1.1                                                                         │
   │ Browser:        Electron 146 (headless) (deprecated)                                           │
   │ Node Version:   v22.19.0 (C:\Program Files\nodejs\node.exe)                                    │
-  │ Specs:          2 found (busca.cy.js, navegacao.cy.js)                                         │
+  │ Specs:          3 found (busca.cy.js, navegacao.cy.js, whatsapp.cy.js)                         │
   │ Searched:       cypress/e2e/**/*.cy.js                                                         │
   └────────────────────────────────────────────────────────────────────────────────────────────────┘
 
@@ -21,17 +21,17 @@ Read more about supported browsers: https://on.cypress.io/launching-browsers
 
 ────────────────────────────────────────────────────────────────────────────────────────────────────
                                                                                                     
-  Running:  busca.cy.js                                                                     (1 of 2)
+  Running:  busca.cy.js                                                                     (1 of 3)
 
 
   Busca do site
-    √ TC02 - busca por termo comum (Direito) mostra resultados relacionados (14629ms)
-    √ TC07 - busca vazia não trava e pede para digitar algo (9279ms)
-    √ TC08 - termo muito grande (250 caracteres) não quebra a página (5026ms)
-    √ TC14 - emoji na busca é tratado sem travar (6309ms)
+    √ TC02 - busca por termo comum (Direito) mostra resultados relacionados (15641ms)
+    √ TC07 - busca vazia não trava e pede para digitar algo (6538ms)
+    √ TC08 - termo muito grande (250 caracteres) não quebra a página (5814ms)
+    √ TC14 - emoji na busca é tratado sem travar (5679ms)
 
 
-  4 passing (39s)
+  4 passing (38s)
 
 
   (Results)
@@ -44,7 +44,7 @@ Read more about supported browsers: https://on.cypress.io/launching-browsers
   │ Skipped:      0                                                                                │
   │ Screenshots:  4                                                                                │
   │ Video:        true                                                                             │
-  │ Duration:     39 seconds                                                                       │
+  │ Duration:     37 seconds                                                                       │
   │ Spec Ran:     busca.cy.js                                                                      │
   └────────────────────────────────────────────────────────────────────────────────────────────────┘
 
@@ -64,14 +64,14 @@ Read more about supported browsers: https://on.cypress.io/launching-browsers
 
 ────────────────────────────────────────────────────────────────────────────────────────────────────
                                                                                                     
-  Running:  navegacao.cy.js                                                                 (2 of 2)
+  Running:  navegacao.cy.js                                                                 (2 of 3)
 
 
   Navegação pelo menu
-    √ TC04 - menu Cursos > Direito abre a página do curso (27750ms)
+    √ TC04 - menu Cursos > Direito abre a página do curso (19842ms)
 
 
-  1 passing (30s)
+  1 passing (22s)
 
 
   (Results)
@@ -84,7 +84,7 @@ Read more about supported browsers: https://on.cypress.io/launching-browsers
   │ Skipped:      0                                                                                │
   │ Screenshots:  1                                                                                │
   │ Video:        true                                                                             │
-  │ Duration:     29 seconds                                                                       │
+  │ Duration:     21 seconds                                                                       │
   │ Spec Ran:     navegacao.cy.js                                                                  │
   └────────────────────────────────────────────────────────────────────────────────────────────────┘
 
@@ -99,6 +99,43 @@ Read more about supported browsers: https://on.cypress.io/launching-browsers
   -  Video output: C:\Users\celei\atividade-cypress\cypress\videos\navegacao.cy.js.mp4
 
 
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  whatsapp.cy.js                                                                  (3 of 3)
+
+
+  Formulário do botão WhatsApp
+    √ TC15 - envio vazio é bloqueado e indica campos obrigatórios (12962ms)
+
+
+  1 passing (19s)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        1                                                                                │
+  │ Passing:      1                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  1                                                                                │
+  │ Video:        true                                                                             │
+  │ Duration:     19 seconds                                                                       │
+  │ Spec Ran:     whatsapp.cy.js                                                                   │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  C:\Users\celei\atividade-cypress\evidencias\prints\whatsapp.cy.js\TC15.png           (1280x720)
+
+
+  (Video)
+
+  -  Video output: C:\Users\celei\atividade-cypress\cypress\videos\whatsapp.cy.js.mp4
+
+
 ====================================================================================================
 
   (Run Finished)
@@ -106,9 +143,11 @@ Read more about supported browsers: https://on.cypress.io/launching-browsers
 
        Spec                                              Tests  Passing  Failing  Pending  Skipped  
   ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
-  │ ✔  busca.cy.js                              00:39        4        4        -        -        - │
+  │ ✔  busca.cy.js                              00:37        4        4        -        -        - │
   ├────────────────────────────────────────────────────────────────────────────────────────────────┤
-  │ ✔  navegacao.cy.js                          00:29        1        1        -        -        - │
+  │ ✔  navegacao.cy.js                          00:21        1        1        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  whatsapp.cy.js                           00:19        1        1        -        -        - │
   └────────────────────────────────────────────────────────────────────────────────────────────────┘
-    ✔  All specs passed!                        01:08        5        5        -        -        -  
+    ✔  All specs passed!                        01:18        6        6        -        -        -  
 

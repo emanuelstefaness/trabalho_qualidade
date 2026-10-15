@@ -20,6 +20,12 @@ module.exports = {
   "menu-cursos": "ul.mbd-root > li.mbd-parent:has(a[href$='/cursos/direito/'])",
   "menu-curso-direito": "li.mbd-sub-item a[href$='/cursos/direito/']",
 
+  // Botão flutuante "Abrir WhatsApp" e seu formulário (RD Station)
+  "wa-botao": ".rdstation-popup-js-floating-button",
+  "wa-form": "form.rdstation-popup-js-form-identifier",
+  "wa-enviar": "form.rdstation-popup-js-form-identifier .rdstation-popup-js-submit-button",
+  "wa-erro": "form.rdstation-popup-js-form-identifier .pristine-error",
+
   // Aviso de cookies
   "cookie-aceitar": "#cn-accept-cookie",
 };

@@ -1,7 +1,7 @@
 # Casos de teste
 
 Sistema: site do Centro Universitário Campo Real – Guarapuava (`https://guarapuava.camporeal.edu.br`).
-Os 5 casos foram retirados do roteiro do 1º bimestre (Desafio 3, aplicando Particionamento de
+Os 6 casos foram retirados do roteiro do 1º bimestre (Desafio 3, aplicando Particionamento de
 Equivalência e Análise de Valor Limite), mantendo a numeração original.
 Todos os elementos são acessados por `data-cy` (ver `cypress/support/data-cy-map.js`).
 
@@ -12,6 +12,7 @@ Todos os elementos são acessados por `data-cy` (ver `cypress/support/data-cy-ma
 | TC08 | Busca | Classe inválida por tamanho extremo (250 caracteres) | `cypress/e2e/busca.cy.js` |
 | TC14 | Busca | Classe inválida (caractere fora do alfanumérico: emoji) | `cypress/e2e/busca.cy.js` |
 | TC04 | Navegação (menu) | Classe de equivalência válida | `cypress/e2e/navegacao.cy.js` |
+| TC15 | Formulário (WhatsApp) | Classe inválida (campos obrigatórios vazios) | `cypress/e2e/whatsapp.cy.js` |
 
 ## TC02 – Busca por termo comum mostra resultados relacionados
 
@@ -51,11 +52,22 @@ Todos os elementos são acessados por `data-cy` (ver `cypress/support/data-cy-ma
 - **Asserções:** URL contém `/cursos/direito`; título da página contém "Direito"; a página exibe "Direito".
 - **data-cy:** `menu-cursos`, `menu-curso-direito`.
 
+## TC15 – Formulário do botão WhatsApp bloqueia envio vazio
+
+- **Pré-condição:** página `https://camporeal.camporeal.edu.br/vestibular` carregada.
+- **Passos:** 1. Clicar no botão flutuante "Abrir WhatsApp". 2. Não preencher nenhum campo.
+  3. Clicar em "Iniciar conversa".
+- **Resultado esperado:** o envio é bloqueado e os avisos de campo obrigatório aparecem.
+- **Asserções:** o formulário abre e continua visível; há 1 ou mais avisos e todos contêm "obrigatório"
+  ("Campo é obrigatório."); a URL continua em `/vestibular`; nenhuma requisição de envio é feita.
+- **Observação:** a requisição ao RD Station é interceptada por segurança, então nenhum dado chega ao site real.
+  Na execução manual o aviso do campo de ano veio em inglês; hoje o formulário não tem mais esse
+  campo e os 4 avisos aparecem em português.
+- **data-cy:** `wa-botao`, `wa-form`, `wa-enviar`, `wa-erro`.
+
 ## Casos do roteiro que não foram automatizados
 
 - **TC01, TC05, TC05B, TC05C, TC06, TC09 a TC13 (formulário de inscrição do vestibular):** a página
   `vestibular-inverno-2026-online-agora-guarapuava` saiu do ar (404) e o vestibular atual
   não tem os mesmos campos (CPF, data de nascimento etc.).
 - **TC03:** depende do site institucional `camporeal.edu.br` (outro domínio).
-- **TC15 (formulário do botão WhatsApp):** o teste manual já havia falhado (mensagem em inglês) e
-  o formulário só abre pelo botão flutuante da página do vestibular.
