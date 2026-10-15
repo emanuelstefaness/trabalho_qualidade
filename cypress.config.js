@@ -2,9 +2,6 @@ const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
   e2e: {
-    setupNodeEvents(on) {
-      on("task", { log(m) { console.log(m); return null; } });
-    },
     baseUrl: "https://guarapuava.camporeal.edu.br",
     specPattern: "cypress/e2e/**/*.cy.js",
     supportFile: "cypress/support/e2e.js",
