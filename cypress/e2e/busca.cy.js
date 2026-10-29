@@ -3,40 +3,48 @@
 import Resultado from "../support/pages/ResultadoBuscaPage";
 
 describe("Busca do site", () => {
-  it("TC02 - busca por termo comum (Direito) mostra resultados relacionados", () => {
-    cy.pesquisar("Direito");
+  beforeEach(function () {
+    cy.fixture("busca").as("dados");
+  });
 
-    cy.url().should("include", "s=Direito");
+  it("TC02 - busca por termo comum (Direito) mostra resultados relacionados", function () {
+    const { termo, parametroUrl, regexTitulo } = this.dados.comum;
+    cy.pesquisar(termo);
+
+    cy.url().should("include", parametroUrl);
     Resultado.titulo().should("exist");
     Resultado.cards().should("have.length.greaterThan", 0);
     Resultado.titulosDosCards().then(($titulos) => {
-      expect($titulos.text()).to.match(/direito/i);
+      expect($titulos.text()).to.match(new RegExp(regexTitulo, "i"));
     });
   });
 
-  it("TC07 - busca vazia não trava e pede para digitar algo", () => {
-    cy.pesquisar("");
+  it("TC07 - busca vazia não trava e pede para digitar algo", function () {
+    const { termo, parametroUrl, mensagem } = this.dados.vazia;
+    cy.pesquisar(termo);
 
-    cy.url().should("include", "s=");
-    Resultado.mensagemVazia().should("contain", "Digite algo para pesquisar.");
+    cy.url().should("include", parametroUrl);
+    Resultado.mensagemVazia().should("contain", mensagem);
     Resultado.cards().should("not.exist");
   });
 
-  it("TC08 - termo muito grande (250 caracteres) não quebra a página", () => {
-    const termo = "A".repeat(250);
+  it("TC08 - termo muito grande (250 caracteres) não quebra a página", function () {
+    const { caractere, tamanho } = this.dados.grande;
+    const termo = caractere.repeat(tamanho);
     cy.pesquisar(termo);
 
-    Resultado.mensagemSemResultado().should("contain", "Nenhum resultado para");
+    Resultado.mensagemSemResultado().should("contain", this.dados.semResultado.mensagem);
     Resultado.mensagemSemResultado().invoke("text").should("include", termo);
     Resultado.cards().should("not.exist");
   });
 
-  it("TC14 - emoji na busca é tratado sem travar", () => {
-    cy.pesquisar("🎓");
+  it("TC14 - emoji na busca é tratado sem travar", function () {
+    const { termo } = this.dados.emoji;
+    cy.pesquisar(termo);
 
-    Resultado.mensagemSemResultado().should("contain", "Nenhum resultado para");
+    Resultado.mensagemSemResultado().should("contain", this.dados.semResultado.mensagem);
     // O WordPress troca o emoji por <img alt="🎓">, então conferimos o HTML.
-    Resultado.mensagemSemResultado().invoke("html").should("include", "🎓");
-    cy.url().should("include", encodeURIComponent("🎓"));
+    Resultado.mensagemSemResultado().invoke("html").should("include", termo);
+    cy.url().should("include", encodeURIComponent(termo));
   });
 });

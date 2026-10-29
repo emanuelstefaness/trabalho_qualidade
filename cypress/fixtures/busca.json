@@ -1,0 +1,7 @@
+{
+  "comum": { "termo": "Direito", "parametroUrl": "s=Direito", "regexTitulo": "direito" },
+  "vazia": { "termo": "", "parametroUrl": "s=", "mensagem": "Digite algo para pesquisar." },
+  "grande": { "caractere": "A", "tamanho": 250 },
+  "emoji": { "termo": "🎓" },
+  "semResultado": { "mensagem": "Nenhum resultado para" }
+}
