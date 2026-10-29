@@ -13,6 +13,7 @@ module.exports = defineConfig({
     viewportHeight: 768,
     defaultCommandTimeout: 10000,
     pageLoadTimeout: 60000,
-    retries: { runMode: 1, openMode: 0 },
+    // Sem retentativas: um teste instável precisa falhar à vista, não passar na 2ª tentativa.
+    retries: { runMode: 0, openMode: 0 },
   },
 });
