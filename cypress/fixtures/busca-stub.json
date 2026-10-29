@@ -1,0 +1,5 @@
+{
+  "termo": "Direito",
+  "sucesso": { "statusCode": 200, "totalCards": 2, "regexTitulo": "direito" },
+  "falha": { "statusCode": 500, "mensagem": "Erro interno do servidor" }
+}
