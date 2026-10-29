@@ -8,7 +8,7 @@ Suíte da A1 (tag `atividade-1`): 6 testes contra o site real da Campo Real. A r
 | # | Problema (onde) | Por que atrapalha | Solução |
 |---|-----------------|-------------------|---------|
 | 1 | Todos os seletores num arquivo só, `data-cy-map.js`, ligado por ids em texto (`cy.dc("busca-card")`) | Arquivo-deus; erro de digitação no id só aparece na execução | Page Objects, um por tela (`HomePage`, `ResultadoBuscaPage`, `CursoPage`, `VestibularPage`); seletores só neles |
-| 2 | `marcarDataCy` em `commands.js`: `MutationObserver` que altera o DOM do site, nunca desconectado e chamado em 4 pontos | Mágica difícil de entender; custo a cada mudança do DOM | Removido: o Page Object busca direto o elemento |
+| 2 | `marcarDataCy` em `commands.js`: `MutationObserver` que altera o DOM do site, nunca desconectado e chamado em 3 pontos | Mágica difícil de entender; custo a cada mudança do DOM | Removido: o Page Object busca direto o elemento |
 | 3 | Passo repetido: `pesquisar()` copiado dentro de `busca.cy.js` (4 testes); abrir o formulário do WhatsApp dentro do teste | Copia e cola; ajuste vira vários | Comandos `cy.pesquisar`, `cy.abrirFormularioWhatsApp`, `cy.aceitarCookies` (+ `cy.abrir`, `cy.bloquearEnvioRdStation`) |
 | 4 | `cy.abrir` clicava no aviso de cookies com um `if` (existe? clica) | Condicional no teste; corrida com o banner | Cookie `cookie_notice_accepted` definido antes do `visit`; sem `if` |
 | 5 | Dados dentro dos testes: "Direito", `"A".repeat(250)`, 🎓, URL do vestibular, mensagens, regex | Dado misturado com lógica | Fixtures `busca.json`, `navegacao.json`, `whatsapp.json`, lidas com `cy.fixture` |
