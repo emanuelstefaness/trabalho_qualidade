@@ -3,7 +3,8 @@
 Sistema: site do Centro Universitário Campo Real – Guarapuava (`https://guarapuava.camporeal.edu.br`).
 Os 6 casos foram retirados do roteiro do 1º bimestre (Desafio 3, aplicando Particionamento de
 Equivalência e Análise de Valor Limite), mantendo a numeração original.
-Todos os elementos são acessados por `data-cy` (ver `cypress/support/data-cy-map.js`).
+Os elementos são acessados por Page Objects (`cypress/support/pages/`); os dados vêm de
+`cypress/fixtures/`. Na A2 foram acrescentados dois cenários com stub (STUB01 e STUB02, abaixo).
 
 | ID (roteiro) | Área | Técnica | Arquivo |
 |--------------|------|---------|---------|
@@ -64,6 +65,14 @@ Todos os elementos são acessados por `data-cy` (ver `cypress/support/data-cy-ma
   Na execução manual o aviso do campo de ano veio em inglês; hoje o formulário não tem mais esse
   campo e os 4 avisos aparecem em português.
 - **data-cy:** `wa-botao`, `wa-form`, `wa-enviar`, `wa-erro`.
+
+## STUB01 e STUB02 – Busca com resposta simulada (`cypress/e2e/busca-stub.cy.js`)
+
+Acrescentados na A2. Usam `cy.intercept` para controlar a resposta da busca.
+
+- **STUB01 (sucesso):** o servidor devolve 200 com 2 resultados; a página exibe o título e os 2 cards,
+  e os títulos contêm "direito".
+- **STUB02 (falha):** o servidor devolve 500; a página mostra a mensagem de erro e nenhum card.
 
 ## Casos do roteiro que não foram automatizados
 
