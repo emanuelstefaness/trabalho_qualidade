@@ -1,15 +1,16 @@
 // Caso do roteiro do 1º bimestre (Desafio 3), numeração mantida.
 // Área: navegação pelo menu principal
+import Home from "../support/pages/HomePage";
+import Curso from "../support/pages/CursoPage";
 
 describe("Navegação pelo menu", () => {
   it("TC04 - menu Cursos > Direito abre a página do curso", () => {
     cy.abrir("/");
 
-    cy.dc("menu-cursos").first().trigger("mouseover");
-    cy.dc("menu-curso-direito").first().click({ force: true });
+    Home.abrirCursoDireito();
 
     cy.url().should("include", "/cursos/direito");
     cy.title().should("match", /direito/i);
-    cy.get("body").should("contain.text", "Direito");
+    Curso.conteudo().should("contain.text", "Direito");
   });
 });
